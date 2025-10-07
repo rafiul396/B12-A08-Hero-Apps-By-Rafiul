@@ -16,14 +16,14 @@ const Hero = () => {
                 </p>
             </div>
             <div className='flex gap-4 justify-center'>
-                <button className='btn'>
+                <a className='btn' href="https://play.google.com/" target='_blank'>
                     <img src={googleStore} alt="" />
                     Google Play
-                </button>
-                <button className='btn'>
+                </a>
+                <a className='btn' href="https://www.apple.com/app-store/" target='_blank'>
                     <img src={appStore} alt="" />
                     App Store
-                </button>
+                </a>
             </div>
             <div className='flex justify-center'>
                 <img src={banner} alt="" />

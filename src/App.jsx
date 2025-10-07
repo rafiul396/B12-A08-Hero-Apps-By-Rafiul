@@ -8,9 +8,7 @@ function App() {
   return (
     <>
       <Header />
-      <Container>
-        <Outlet></Outlet>
-      </Container>
+      <Outlet></Outlet>
       <ToastContainer/>
     </>
   )
