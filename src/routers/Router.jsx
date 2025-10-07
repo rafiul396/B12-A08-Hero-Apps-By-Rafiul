@@ -5,17 +5,18 @@ import Notfound from '../errors/Notfound';
 import Home from '../pages/Home';
 import Application from '../pages/Application';
 import Installation from '../pages/Installation';
+import Appdetails from '../components/Apps/Appdetails';
+import AppNotFound from '../errors/AppNotFound';
 
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: App,
-    errorElement: <Notfound/>,
     children: [
       {
         index: true,
         path: "/",
-        Component : Home
+        Component: Home
       },
       {
         path: "/apps",
@@ -24,7 +25,21 @@ export const router = createBrowserRouter([
       {
         path: "/installation",
         Component: Installation
+      },
+      {
+        path: "/appdetails/app",
+        Component: Appdetails,
+        errorElement: <h1>App not found</h1>
+      },
+      {
+        path: "*",
+        Component: Notfound
+      },
+      {
+        path: "/appdetails/*",
+        Component: AppNotFound
       }
     ]
   },
+
 ]);

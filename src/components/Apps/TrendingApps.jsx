@@ -19,7 +19,7 @@ const TrendingApps = () => {
                         arr.map(app => <Apps />)
                     }
                 </div>
-                <div className='flex justify-center my-10'>
+                <div className='flex justify-center py-10'>
                     <a href="/apps" className='btn gradient-bg text-white'>
                         Show All
                     </a>

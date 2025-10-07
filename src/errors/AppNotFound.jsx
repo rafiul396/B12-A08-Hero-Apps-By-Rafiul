@@ -1,21 +1,21 @@
 import React from 'react';
+import appNotFound from '../assets/App-Error.png';
 import Container from '../components/layout/Container';
-import notFound from '../assets/error-404.png'
 
-const Notfound = () => {
+const AppNotFound = () => {
     return (
         <div>
             <Container>
                 <div className='h-[100vh] flex flex-col justify-center items-center'>
                 <div>
-                    <img className='w-[300px]' src={notFound} alt="" />
+                    <img className='w-[300px]' src={appNotFound} alt="" />
                 </div>
                 <div className='mt-5'>
                     <h3 className='text-3xl text-center font-semibold mb-1'>
-                        Oops, page not found!
+                        OPPS!! APP NOT FOUND
                     </h3>
                     <p className='text-center text-xs md:text-lg text-[#627382]'>
-                        The page you are looking for is not available.
+                        The App you are requesting is not found on our system.  please try another apps
                     </p>
                 </div>
                 <div className='flex justify-center pt-3'>
@@ -29,4 +29,4 @@ const Notfound = () => {
     );
 };
 
-export default Notfound;
+export default AppNotFound;
