@@ -4,25 +4,22 @@ import downloadIcon from '../assets/icon-downloads.png';
 import ratingIcon from '../assets/icon-ratings.png';
 import reviewIcon from '../assets/icon-review.png';
 import { useLoaderData, useParams } from 'react-router';
+import useApp from '../hooks/useApp';
 
 const Appdetails = () => {
-    const appsData = useLoaderData();
-    // console.log(appsData);
-    // const id = useParams();
-    // // console.log(id);
-    // const {appId} = id;
-    // // console.log(appId);
-    // const singleApp = appsData.find(app => app.id === parseInt(appId));
-    // console.log(singleApp);
-    const { title, downloads, ratingAvg, image, size, companyName, description } = appsData;
+    // const apps = useLoaderData();
+    const {apps} = useApp();
+    const {appId} = useParams();
+    const singleApp = apps.find(app => app.id === parseInt(appId));
+    console.log(singleApp);
+    // const { title, downloads, ratingAvg, image, size, companyName, description } = singleApp;
         
-    
-    
     return (
         <section>
             <Container>
-                <div className='lg:grid lg:grid-cols-12 lg:gap-6 flex flex-col justify-center lg:justify-start rounded-xl pt-20'>
-                    <div className='lg:h-[300px] bg-amber-200 rounded-xl lg:col-span-4 p-10 lg:p-6'>
+                <h1>Application Details</h1>
+                {/* <div className='lg:grid lg:grid-cols-12 lg:gap-6 flex flex-col justify-center lg:justify-start rounded-xl pt-20'>
+                    <div className='lg:h-[300px] xl:h-[430px] xl:w-[450px] bg-[#13131310] rounded-xl lg:col-span-4 p-10 m-5 lg:m-0 lg:p-6'>
                         <img className='h-full w-full rounded-xl' src={image} alt="" />
                     </div>
                     <div className='lg:col-span-8'>
@@ -67,7 +64,7 @@ const Appdetails = () => {
                     <p className='text-xs md:text-lg text-[#627382]'>
                         {description}
                     </p>
-                </div>
+                </div> */}
             </Container>
         </section>
     );

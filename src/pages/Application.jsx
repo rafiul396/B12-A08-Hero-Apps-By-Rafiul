@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Apps from '../components/Apps/Apps';
 import Container from '../components/layout/Container';
 import { useLoaderData } from 'react-router';
+import useApp from '../hooks/useApp';
 
 const Application = () => {
-    const appsData = useLoaderData();
+    const {apps} = useApp();
+    const [search, setSearch] = useState('');
+    const term = search.trim().toLocaleLowerCase();
+    const searchingApp = term ? apps.filter(appli => appli.title.toLocaleLowerCase().includes(term)) : apps;
+
     return (
         <main>
             <Container>
@@ -17,7 +22,8 @@ const Application = () => {
                     </p>
                 </div>
                 <div className='flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center mb-4'>
-                    <h5 className='font-semibold'>({appsData.length}) Apps Found</h5>
+                    <h5 className='font-semibold'>({searchingApp.length}) Apps Found</h5>
+                    {/* search feild */}
                     <label className="input">
                         <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <g
@@ -31,12 +37,12 @@ const Application = () => {
                                 <path d="m21 21-4.3-4.3"></path>
                             </g>
                         </svg>
-                        <input type="search" required placeholder="Search" />
+                        <input type="search" required placeholder="Search" defaultChecked={search} onChange={(e) => setSearch(e.target.value)} />
                     </label>
                 </div>
                 <div className='grid md:grid-cols-3 lg:grid-cols-4 grid-cols-2 gap-4'>
                     {
-                        appsData.map(app => <Apps key={app.id} app={app}/>)
+                        searchingApp.map(app => <Apps key={app.id} app={app}/>)
                     }
                 </div>
             </Container>

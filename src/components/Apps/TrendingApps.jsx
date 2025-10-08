@@ -1,9 +1,12 @@
 import React from 'react';
 import Container from '../layout/Container';
 import Apps from './Apps';
-// const arr = [1, 2, 3, 4, 5, 6, 7, 8]
+import useApp from '../../hooks/useApp';
 
-const TrendingApps = ({ appsData }) => {
+const TrendingApps = () => {
+    const {apps} = useApp();
+    // console.log(apps);
+    
     return (
         <main>
             <Container>
@@ -17,7 +20,7 @@ const TrendingApps = ({ appsData }) => {
                 </div>
                 <div className='grid md:grid-cols-3 lg:grid-cols-4 grid-cols-2 gap-4'>
                     {
-                        appsData.slice(0, 8).map(app => <Apps key={app.id} app={app}/>)
+                        apps.slice(0, 8).map(app => <Apps key={app.id} app={app}/>)
                     }
                 </div>
                 <div className='flex justify-center py-10'>
