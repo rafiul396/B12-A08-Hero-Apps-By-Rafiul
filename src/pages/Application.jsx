@@ -1,9 +1,10 @@
 import React from 'react';
 import Apps from '../components/Apps/Apps';
 import Container from '../components/layout/Container';
-const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
+import { useLoaderData } from 'react-router';
 
 const Application = () => {
+    const appsData = useLoaderData();
     return (
         <main>
             <Container>
@@ -16,7 +17,7 @@ const Application = () => {
                     </p>
                 </div>
                 <div className='flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center mb-4'>
-                    <h5 className='font-semibold'>({arr.length}) Apps Found</h5>
+                    <h5 className='font-semibold'>({appsData.length}) Apps Found</h5>
                     <label className="input">
                         <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <g
@@ -35,7 +36,7 @@ const Application = () => {
                 </div>
                 <div className='grid md:grid-cols-3 lg:grid-cols-4 grid-cols-2 gap-4'>
                     {
-                        arr.map(app => <Apps />)
+                        appsData.map(app => <Apps key={app.id} app={app}/>)
                     }
                 </div>
             </Container>

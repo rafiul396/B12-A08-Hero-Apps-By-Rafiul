@@ -16,20 +16,35 @@ export const router = createBrowserRouter([
       {
         index: true,
         path: "/",
+        loader: () => fetch('/appdata.json'),
         Component: Home
       },
       {
         path: "/apps",
+        loader: () => fetch('/appdata.json'),
         Component: Application
       },
       {
         path: "/installation",
         Component: Installation
       },
+      // {
+      //   path: "/appdetails/:appId",
+      //   loader: () => fetch('/appdata.json'),
+      //   Component: Appdetails
+      // },
       {
-        path: "/appdetails/app",
-        Component: Appdetails,
-        errorElement: <h1>App not found</h1>
+        path: "/appdetails/:appId",
+        loader: async ({ params }) => {
+          const res = await fetch('/appdata.json');
+          const data = await res.json();
+          const app = data.find(a => a.id === parseInt(params.appId));
+          if (!app) {
+            throw new Response("Not Found", { status: 404 });
+          }
+          return app;
+        },
+        Component: Appdetails
       },
       {
         path: "*",
