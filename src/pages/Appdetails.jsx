@@ -22,7 +22,7 @@ const Appdetails = () => {
         <section>
             <Container>
                 <div className='lg:grid lg:grid-cols-12 lg:gap-6 flex flex-col justify-center lg:justify-start rounded-xl pt-20'>
-                    <div className='lg:h-[300px] bg-amber-200 rounded-xl lg:col-span-4 p-10 lg:p-6'>
+                    <div className='lg:h-[300px] bg-amber-200 rounded-xl lg:col-span-4 p-10 mb-6 lg:mb-0 lg:p-6'>
                         <img className='h-full w-full rounded-xl' src={image} alt="" />
                     </div>
                     <div className='lg:col-span-8'>
