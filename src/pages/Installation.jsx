@@ -1,9 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from '../components/layout/Container';
 import InstalledApp from '../components/Apps/InstalledApp';
-const apps = [1,2,3];
 
 const Installation = () => {
+    const [installApp, setInstalledApp] = useState([]);
+    const [sorted, setSorted] = useState('Sort by Size');
+
+    useEffect(() => {
+        const installedApp = JSON.parse(localStorage.getItem('installed'));
+        if(installedApp){
+            setInstalledApp(installedApp)
+        }
+    }, [])
+
+    const sortedApps = (
+        () => {
+        if(sorted === 'lowToHigh'){
+            return [...installApp].sort((a, b) => a.size - b.size)
+        }else if(sorted === 'highToLow'){
+            return [...installApp].sort((a, b) => b.size - a.size)
+        }else {
+            return installApp;
+        }
+    }
+    )()
+
+    const uninstallApp = (appId) => {
+            const getInstalledApp = JSON.parse(localStorage.getItem('installed'));
+            let updatedList = getInstalledApp.filter(app => app.id !== appId);
+            setInstalledApp(updatedList)
+            localStorage.setItem('installed', JSON.stringify(updatedList));
+        }
+
     return (
         <main>
             <Container>
@@ -16,16 +44,17 @@ const Installation = () => {
                     </p>
                 </div>
                 <div className='flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center mb-4'>
-                    <h5 className='font-semibold'>1 Apps Found</h5>
-                    <select defaultValue="Sort by Size" className="select w-[130px]">
-                        <option disabled={true}>Sort by Size</option>
-                        <option>Low - High</option>
-                        <option>High - Low</option>
+                    <h5 className='font-semibold'>{installApp.length} Apps Found</h5>
+                    {/* sorting apps by its size */}
+                    <select defaultValue={sorted} onChange={(e) => setSorted(e.target.value)} className="select w-[130px]">
+                        <option value='none'>Sort by Size</option>
+                        <option value='lowToHigh'>Low - High</option>
+                        <option value='highToLow'>High - Low</option>
                     </select>
                 </div>
                 <main className='pb-20 space-y-4'>
                     {
-                        apps.map(app => <InstalledApp/>)
+                        sortedApps.map(app => <InstalledApp key={app.id} uninstallApp={uninstallApp} app={app}/>)
                     }
                     
                 </main>

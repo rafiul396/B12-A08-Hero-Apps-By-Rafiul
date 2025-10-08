@@ -3,22 +3,41 @@ import Container from '../components/layout/Container';
 import downloadIcon from '../assets/icon-downloads.png';
 import ratingIcon from '../assets/icon-ratings.png';
 import reviewIcon from '../assets/icon-review.png';
-import { useLoaderData, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import useApp from '../hooks/useApp';
+import AppNotFound from '../errors/AppNotFound';
+import { toast } from 'react-toastify';
+import Chart from '../recharts/Chart';
 
 const Appdetails = () => {
-    // const apps = useLoaderData();
-    const {apps} = useApp();
-    const {appId} = useParams();
+    const { apps, loading } = useApp();
+    const { appId } = useParams();
     const singleApp = apps.find(app => app.id === parseInt(appId));
-    console.log(singleApp);
-    // const { title, downloads, ratingAvg, image, size, companyName, description } = singleApp;
-        
+    if(loading){
+        return <h1>Loading...</h1>
+    }
+    const { title, downloads, ratingAvg, image, size, companyName, description } = singleApp;
+    
+    const setInstalledAppsInLS = () => {
+        const getInstalledApp = JSON.parse(localStorage.getItem('installed'))
+        let updatedList = [];
+        if(getInstalledApp){
+            const isDuplicate = getInstalledApp.some(dup => dup.id === singleApp.id);
+            if(isDuplicate){
+                return toast('Sorry')
+            }
+            updatedList = [...getInstalledApp, singleApp]
+        }else{
+            updatedList.push(singleApp)
+        }
+        localStorage.setItem('installed', JSON.stringify(updatedList))
+    }
+
+
     return (
         <section>
             <Container>
-                <h1>Application Details</h1>
-                {/* <div className='lg:grid lg:grid-cols-12 lg:gap-6 flex flex-col justify-center lg:justify-start rounded-xl pt-20'>
+                <div className='lg:grid lg:grid-cols-12 lg:gap-6 flex flex-col justify-center lg:justify-start rounded-xl pt-20'>
                     <div className='lg:h-[300px] xl:h-[430px] xl:w-[450px] bg-[#13131310] rounded-xl lg:col-span-4 p-10 m-5 lg:m-0 lg:p-6'>
                         <img className='h-full w-full rounded-xl' src={image} alt="" />
                     </div>
@@ -49,22 +68,22 @@ const Appdetails = () => {
                                 </div>
                             </div>
                             <div className='text-center lg:text-start'>
-                                <button className='btn font-medium border-none text-[#ffffff] bg-[#00D390] py-2 px-10 rounded-lg'>Install Now ({size} MB)</button>
+                                <button onClick={setInstalledAppsInLS} className='btn font-medium border-none text-[#ffffff] bg-[#00D390] py-2 px-10 rounded-lg'>Install Now ({size} MB)</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="border border-[#13131310] my-8"></div>
                 <div>
-
+                    <Chart singleApp={singleApp}/>
                 </div>
-                <div className="border border-[#13131310] my-8"></div>
+                <div className="border border-[#13131310] mt-15 mb-5" ></div>
                 <div>
                     <h2>Description</h2>
                     <p className='text-xs md:text-lg text-[#627382]'>
                         {description}
                     </p>
-                </div> */}
+                </div>
             </Container>
         </section>
     );
