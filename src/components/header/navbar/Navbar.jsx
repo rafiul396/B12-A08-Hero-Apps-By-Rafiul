@@ -46,7 +46,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        <a className="btn gradient-bg text-white"><span className='text-lg'><FaGithub /></span>  Contribute</a>
+                        <a className="btn gradient-bg text-white" href='https://github.com/rafiul396' target='_blank'><span className='text-lg'><FaGithub /></span>  Contribute</a>
                     </div>
                 </div>
             </Container>

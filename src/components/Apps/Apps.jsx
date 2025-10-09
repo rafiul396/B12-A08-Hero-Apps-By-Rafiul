@@ -7,7 +7,7 @@ const Apps = ({ app }) => {
     const { title, downloads, ratingAvg, image, id } = app;
 
     return (
-        <Link to={`/appdetails/${id}`}>
+        <Link className='cursor-pointer transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg' to={`/appdetails/${id}`}>
             <div className='bg-base-100 p-4 rounded-xl space-y-2'>
                 <img className='rounded-xl bg-amber-200 p-3' src={image} alt="" />
                 <h4 className='text-[15px]'>{title}</h4>

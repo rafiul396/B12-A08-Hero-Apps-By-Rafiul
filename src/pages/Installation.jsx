@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import Container from '../components/layout/Container';
 import InstalledApp from '../components/Apps/InstalledApp';
+import NoAppIns from '../errors/NoAppIns';
+import { loadInstalledApps } from '../utilize/localStorage';
 
 const Installation = () => {
-    const [installApp, setInstalledApp] = useState([]);
+    const [installApp, setInstalledApp] = useState(() => loadInstalledApps());
     const [sorted, setSorted] = useState('Sort by Size');
 
-    useEffect(() => {
-        const installedApp = JSON.parse(localStorage.getItem('installed'));
-        if(installedApp){
-            setInstalledApp(installedApp)
-        }
-    }, [])
+    // useEffect(() => {
+    //     const installedApp = JSON.parse(localStorage.getItem('installed'));
+    //     if(installedApp){
+    //         setInstalledApp(installedApp)
+    //     }
+    // }, [])
 
     const sortedApps = (
         () => {
@@ -54,7 +56,7 @@ const Installation = () => {
                 </div>
                 <main className='pb-20 space-y-4'>
                     {
-                        sortedApps.map(app => <InstalledApp key={app.id} uninstallApp={uninstallApp} app={app}/>)
+                        !sortedApps.length ? <NoAppIns/> : sortedApps.map(app => <InstalledApp key={app.id} uninstallApp={uninstallApp} app={app}/>)
                     }
                     
                 </main>
