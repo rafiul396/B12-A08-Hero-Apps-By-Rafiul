@@ -85,8 +85,8 @@ const Appdetails = () => {
                                         setShowInstalled(prev => [...prev, singleApp]);
                                         installedAlert();
 
-                                }} className='active:scale-95 font-medium border-none text-[#ffffff] bg-[#00D390] 
-                                disabled:bg-[#00D390] py-2 px-10 rounded-lg'>
+                                }} className={`${!matchingApp && 'active:scale-95'} font-medium border-none text-[#ffffff] bg-[#00D390] 
+                                disabled:bg-[#00D390] py-2 px-10 rounded-lg ${!matchingApp && 'skeleton'} cursor-pointer [&:disabled]:cursor-not-allowed`}>
                                     {
                                         matchingApp ? 'Installed' : `Install Now (${size} MB)`
                                     }

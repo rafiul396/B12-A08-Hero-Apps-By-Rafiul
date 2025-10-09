@@ -1,9 +1,10 @@
 import React from 'react';
+import logo from '../assets/logo.png'
 
 const Loaderforapp = () => {
     return (
-        <div>
-            <h1 className='text-6xl bg-red-500'>Loaing...</h1>
+        <div className='flex justify-center items-center h-[100vh]'>
+            <img className='w-[200px] animate-spin' src={logo} />
         </div>
     );
 };

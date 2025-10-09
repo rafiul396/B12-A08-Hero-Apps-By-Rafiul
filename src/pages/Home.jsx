@@ -7,16 +7,23 @@ import Loaderforapp from '../loader/Loaderforapp';
 
 
 const Home = () => {
-       const {loading} =useApp();
+    const { loading } = useApp();
+    console.log(loading);
+
     return (
         <>
-            <Container>
-                <Hero />
-            </Container>
-             <Trusted />
             {
-                loading ? <Loaderforapp /> : <TrendingApps />
+                loading ? <Loaderforapp /> : (
+                    <>
+                        <Container>
+                            <Hero />
+                        </Container>
+                        <Trusted />
+                        <TrendingApps />
+                    </>
+                )
             }
+
         </>
     );
 };
