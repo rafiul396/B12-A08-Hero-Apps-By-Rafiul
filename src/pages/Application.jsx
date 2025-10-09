@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Apps from '../components/Apps/Apps';
 import Container from '../components/layout/Container';
-import { useLoaderData } from 'react-router';
 import useApp from '../hooks/useApp';
+import AppNotFound from '../errors/AppNotFound';
+import ErrorSearch from '../errors/ErrorSearch';
 
 const Application = () => {
     const {apps} = useApp();
@@ -42,7 +43,7 @@ const Application = () => {
                 </div>
                 <div className='grid md:grid-cols-3 lg:grid-cols-4 grid-cols-2 gap-4'>
                     {
-                        searchingApp.map(app => <Apps key={app.id} app={app}/>)
+                        searchingApp.length ? searchingApp.map(app => <Apps key={app.id} app={app}/>) : <ErrorSearch />
                     }
                 </div>
             </Container>

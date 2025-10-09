@@ -1,12 +1,11 @@
 import React from 'react';
 import appNotFound from '../assets/App-Error.png';
-import Container from '../components/layout/Container';
 import { Link } from 'react-router';
 
-const AppNotFound = () => {
+const ErrorSearch = () => {
     return (
-        <div>
-            <Container>
+    
+            <div className='h-[100vh] flex flex-col justify-center items-center col-span-4'>
                 <div className='h-[100vh] flex flex-col justify-center items-center'>
                 <div>
                     <img className='w-[300px]' src={appNotFound} alt="" />
@@ -20,14 +19,13 @@ const AppNotFound = () => {
                     </p>
                 </div>
                 <div className='flex justify-center pt-3'>
-                    <Link to="/" className='btn px-8 border-none shadow-none gradient-bg text-white'>
-                        Go Back!
-                    </Link>
+                    <a href="/apps" className='btn px-8 border-none shadow-none gradient-bg text-white'>
+                        Show All Apps
+                    </a>
                 </div>
                 </div>
-            </Container>
-        </div>
+            </div>
     );
 };
 
-export default AppNotFound;
+export default ErrorSearch;

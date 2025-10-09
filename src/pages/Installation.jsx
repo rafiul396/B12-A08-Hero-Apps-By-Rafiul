@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Container from '../components/layout/Container';
 import InstalledApp from '../components/Apps/InstalledApp';
 import NoAppIns from '../errors/NoAppIns';
-import { loadInstalledApps } from '../utilize/localStorage';
+import { loadInstalledApps, removeApps } from '../utilize/localStorage';
 
 const Installation = () => {
     const [installApp, setInstalledApp] = useState(() => loadInstalledApps());
@@ -28,10 +28,10 @@ const Installation = () => {
     )()
 
     const uninstallApp = (appId) => {
-            const getInstalledApp = JSON.parse(localStorage.getItem('installed'));
-            let updatedList = getInstalledApp.filter(app => app.id !== appId);
-            setInstalledApp(updatedList)
-            localStorage.setItem('installed', JSON.stringify(updatedList));
+            //remove from local storage
+            removeApps(appId);
+            // instant update
+            setInstalledApp(prev => prev.filter(p => p.id !== appId));
         }
 
     return (

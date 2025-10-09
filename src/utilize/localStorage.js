@@ -14,9 +14,20 @@ export const updatedList = (app) => {
     try{
         const isDuplicate = installed.some(dupli => dupli.id === app.id);
         if(isDuplicate){
-            return alert('Existed')
+            return
         }
         const updateInstallation = [...installed, app];
+        localStorage.setItem('installed', JSON.stringify(updateInstallation))
+    } catch(err) {
+        console.log(err);     
+    }
+}
+
+export const removeApps = (appId) => {
+    const installed = loadInstalledApps();
+
+    try{
+        const updateInstallation = installed.filter(remove => remove.id !== appId)
         localStorage.setItem('installed', JSON.stringify(updateInstallation))
     } catch(err) {
         console.log(err);     

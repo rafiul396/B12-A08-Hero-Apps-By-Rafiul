@@ -1,6 +1,7 @@
 import React from 'react';
 import Container from '../components/layout/Container';
 import notFound from '../assets/error-404.png'
+import { Link } from 'react-router';
 
 const Notfound = () => {
     return (
@@ -19,9 +20,9 @@ const Notfound = () => {
                     </p>
                 </div>
                 <div className='flex justify-center pt-3'>
-                    <a href="/" className='btn px-8 border-none shadow-none gradient-bg text-white'>
+                    <Link to="/" className='btn px-8 border-none shadow-none gradient-bg text-white'>
                         Go Back!
-                    </a>
+                    </Link>
                 </div>
                 </div>
             </Container>
