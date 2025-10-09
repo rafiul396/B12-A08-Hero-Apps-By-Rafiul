@@ -9,6 +9,7 @@ import AppNotFound from '../errors/AppNotFound';
 import { toast } from 'react-toastify';
 import Chart from '../recharts/Chart';
 import { loadInstalledApps, updatedList } from '../utilize/localStorage';
+import Loaderforapp from '../loader/Loaderforapp';
 
 const Appdetails = () => {
     const [showInstalled, setShowInstalled] = useState(() => loadInstalledApps());
@@ -17,7 +18,7 @@ const Appdetails = () => {
     const { appId } = useParams();
     const singleApp = apps.find(app => app.id === parseInt(appId));
     if(loading){
-        return <h1>Loading...</h1>
+        return <Loaderforapp />
     }
     const { title, downloads, ratingAvg, image, size, companyName, description, id } = singleApp;
     const matchingApp = showInstalled.find(element => {

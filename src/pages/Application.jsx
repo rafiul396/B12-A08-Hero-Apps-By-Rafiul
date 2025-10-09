@@ -4,9 +4,10 @@ import Container from '../components/layout/Container';
 import useApp from '../hooks/useApp';
 import AppNotFound from '../errors/AppNotFound';
 import ErrorSearch from '../errors/ErrorSearch';
+import SkeletonLoader from '../loader/SkeletonLoader';
 
 const Application = () => {
-    const {apps} = useApp();
+    const {apps, loading} = useApp();
     const [search, setSearch] = useState('');
     const term = search.trim().toLocaleLowerCase();
     const searchingApp = term ? apps.filter(appli => appli.title.toLocaleLowerCase().includes(term)) : apps;
@@ -41,11 +42,15 @@ const Application = () => {
                         <input type="search" required placeholder="Search" defaultChecked={search} onChange={(e) => setSearch(e.target.value)} />
                     </label>
                 </div>
-                <div className='grid md:grid-cols-3 lg:grid-cols-4 grid-cols-2 gap-4'>
+                {
+                    loading ? (<SkeletonLoader count={searchingApp.length}/>) : (
+                        <div className='grid md:grid-cols-3 lg:grid-cols-4 grid-cols-2 gap-4'>
                     {
-                        searchingApp.length ? searchingApp.map(app => <Apps key={app.id} app={app}/>) : <ErrorSearch />
+                         searchingApp.length ? searchingApp.map(app => <Apps key={app.id} app={app}/>) : <ErrorSearch />
                     }
                 </div>
+                    )
+                }
             </Container>
         </main>
     );

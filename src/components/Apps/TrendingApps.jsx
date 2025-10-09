@@ -2,6 +2,7 @@ import React from 'react';
 import Container from '../layout/Container';
 import Apps from './Apps';
 import useApp from '../../hooks/useApp';
+import Loaderforapp from '../../loader/Loaderforapp';
 
 const TrendingApps = () => {
     const {apps} = useApp();
