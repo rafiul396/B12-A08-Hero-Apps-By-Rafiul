@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
 import downloadIcon from '../../assets/icon-downloads.png';
 import ratingIcon from '../../assets/icon-ratings.png';
 import { toast } from 'react-toastify';
-import parseShorthandNumber from '../../utilize/Convertednum';
 
 
 const InstalledApp = ({ app, uninstallApp }) => {

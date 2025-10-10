@@ -31,19 +31,6 @@ export const router = createBrowserRouter([
         path: "/appdetails/:appId",
         Component: Appdetails
       },
-      // {
-      //   path: "/appdetails/:appId",
-      //   loader: async ({ params }) => {
-      //     const res = await fetch('/appdata.json');
-      //     const data = await res.json();
-      //     const app = data.find(a => a.id === parseInt(params.appId));
-      //     if (!app) {
-      //       throw new Response("Not Found", { status: 404 });
-      //     }
-      //     return app;
-      //   },
-      //   Component: Appdetails
-      // },
       {
         path: "*",
         Component: Notfound

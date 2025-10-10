@@ -12,7 +12,7 @@ const ErrorSearch = () => {
                 </div>
                 <div className='mt-5'>
                     <h3 className='text-3xl text-center font-semibold mb-1'>
-                        OPPS!! APP NOT FOUND
+                        NO APP FOUND
                     </h3>
                     <p className='text-center text-xs md:text-lg text-[#627382]'>
                         The App you are requesting is not found on our system.  please try another apps

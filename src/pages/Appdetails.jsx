@@ -20,7 +20,7 @@ const Appdetails = () => {
     if(loading){
         return <Loaderforapp />
     }
-    const { title, downloads, ratingAvg, image, size, companyName, description, id } = singleApp;
+    const { title, downloads, ratingAvg, image, size, companyName, description, id, reviews } = singleApp;
     const matchingApp = showInstalled.find(element => {
                                            return element.id === id    
                                         })
@@ -54,12 +54,12 @@ const Appdetails = () => {
                                 <div className='space-y-2'>
                                     <img className='w-[30px]' src={ratingIcon} alt="" />
                                     <p className='lg:text-[14px] text-xs text-[#001931]'>Average Ratings</p>
-                                    <h2 className='lg:text-3xl text-2xl font-bold text-[#001931]'>4.9</h2>
+                                    <h2 className='lg:text-3xl text-2xl font-bold text-[#001931]'>{ratingAvg}</h2>
                                 </div>
                                 <div className='space-y-2'>
                                     <img className='w-[30px]' src={reviewIcon} alt="" />
                                     <p className='lg:text-[14px] text-xs text-[#001931]'>Total Reviews</p>
-                                    <h2 className='lg:text-3xl text-2xl font-bold text-[#001931]'>{ratingAvg}</h2>
+                                    <h2 className='lg:text-3xl text-2xl font-bold text-[#001931]'>{reviews}</h2>
                                 </div>
                             </div>
                             <div className='text-center lg:text-start'>
