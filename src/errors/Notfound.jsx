@@ -6,6 +6,7 @@ import { Link } from 'react-router';
 const Notfound = () => {
     return (
         <div>
+            <title>Error - 404</title>
             <Container>
                 <div className='h-[100vh] flex flex-col justify-center items-center'>
                 <div>

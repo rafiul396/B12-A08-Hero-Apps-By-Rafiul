@@ -8,6 +8,7 @@ import Footer from '../components/footer/Footer';
 const AppNotFound = () => {
     return (
         <div>
+            <title>No App Found</title>
             <Navbar />
             <Container>
                 <div className='h-[100vh] flex flex-col justify-center items-center'>
