@@ -49,7 +49,7 @@ const Appdetails = () => {
                             <div className='flex gap-15 justify-evenly lg:justify-start'>
                                 <div className='space-y-2'>
                                     <img className='w-[30px]' src={downloadIcon} alt="" />
-                                    <p className='lg:text-[14px] text-xs text-[#001931]'>Download</p>
+                                    <p className='lg:text-[14px] text-xs text-[#001931]'>Downloads</p>
                                     <h2 className='lg:text-3xl text-2xl font-bold text-[#001931]'>{downloads}</h2>
                                 </div>
                                 <div className='space-y-2'>

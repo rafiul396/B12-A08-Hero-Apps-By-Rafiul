@@ -36,7 +36,7 @@ const Chart = ({ singleApp }) => {
         Ratings
       </h2>
 
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height="100%" className="md:p-4 p-2">
         <BarChart
           data={data}
           layout="vertical"
