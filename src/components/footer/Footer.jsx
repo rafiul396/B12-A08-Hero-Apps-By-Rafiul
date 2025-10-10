@@ -3,7 +3,7 @@ import Container from '../layout/Container';
 
 const Footer = () => {
     return (
-        <footer className="bg-base-100 shadow-sm ">
+        <footer className="bg-base-100 shadow-sm mt-20">
             <Container>
                 <div className='footer sm:footer-horizontal  text-base-content p-10'>
                     <nav>
@@ -35,7 +35,7 @@ const Footer = () => {
                                     type="text"
                                     placeholder="username@site.com"
                                     className="input input-bordered join-item" />
-                                <button className="btn btn-primary join-item">Subscribe</button>
+                                <button className="btn gradient-bg text-white join-item">Subscribe</button>
                             </div>
                         </fieldset>
                     </form>
