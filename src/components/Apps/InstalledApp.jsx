@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import downloadIcon from '../../assets/icon-downloads.png';
 import ratingIcon from '../../assets/icon-ratings.png';
+import { toast } from 'react-toastify';
+import parseShorthandNumber from '../../utilize/Convertednum';
+
 
 const InstalledApp = ({ app, uninstallApp }) => {
     const { image, ratingAvg, downloads, title, size, id } = app;
+    const uninstalledAlert = () => {
+            toast(`Yahoo ⚡ !! ${title} uninstalled from your Device`)
+        }
+    
+
     return (
         <div className='flex justify-between items-center bg-base-100 rounded-xl p-4'>
             <div className='flex items-center gap-4'>
@@ -26,7 +34,10 @@ const InstalledApp = ({ app, uninstallApp }) => {
                 </div>
             </div>
             <div className='text-center lg:text-start'>
-                <button onClick={() => uninstallApp(id)} className='btn font-medium border-none text-[#ffffff] bg-[#00D390] py-2 px-3 rounded-lg'>Uninstall</button>
+                <button onClick={() => {
+                    uninstallApp(id);
+                    uninstalledAlert();
+                }} className='btn font-medium border-none text-[#ffffff] bg-[#00D390] py-2 px-3 rounded-lg'>Uninstall</button>
             </div>
         </div>
     );

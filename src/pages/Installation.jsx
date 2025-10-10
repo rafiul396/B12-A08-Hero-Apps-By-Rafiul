@@ -5,25 +5,19 @@ import { loadInstalledApps, removeApps } from '../utilize/localStorage';
 import useApp from '../hooks/useApp';
 import Loaderforins from '../loader/Loaderforins';
 import { useState } from 'react';
+import parseShorthandNumber from '../utilize/Convertednum';
 
 const Installation = () => {
     const [installApp, setInstalledApp] = useState(() => loadInstalledApps());
     const [sorted, setSorted] = useState('Sort by Size');
     const {loading} = useApp();
 
-    // useEffect(() => {
-    //     const installedApp = JSON.parse(localStorage.getItem('installed'));
-    //     if(installedApp){
-    //         setInstalledApp(installedApp)
-    //     }
-    // }, [])
-
     const sortedApps = (
         () => {
         if(sorted === 'lowToHigh'){
-            return [...installApp].sort((a, b) => a.size - b.size)
+            return [...installApp].sort((a, b) => parseShorthandNumber(a.downloads) - parseShorthandNumber(b.downloads))
         }else if(sorted === 'highToLow'){
-            return [...installApp].sort((a, b) => b.size - a.size)
+            return [...installApp].sort((a, b) => parseShorthandNumber(b.downloads) - parseShorthandNumber(a.downloads))
         }else {
             return installApp;
         }

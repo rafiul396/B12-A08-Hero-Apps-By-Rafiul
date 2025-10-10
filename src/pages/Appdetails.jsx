@@ -26,25 +26,8 @@ const Appdetails = () => {
                                         })
 
     const installedAlert = () => {
-        toast(`Yahoo ⚡ !! ${title} with
-            Reminder Installed Successfully`)
+        toast(`Yahoo ⚡ !! ${title} Installed Successfully`)
     }
-
-    // const setInstalledAppsInLS = () => {
-    //     const getInstalledApp = JSON.parse(localStorage.getItem('installed'))
-    //     let updatedList = [];
-    //     if(getInstalledApp){
-    //         const isDuplicate = getInstalledApp.some(dup => dup.id === singleApp.id);
-    //         if(isDuplicate){
-    //             return toast('Sorry')
-    //         }
-    //         updatedList = [...getInstalledApp, singleApp]
-    //     }else{
-    //         updatedList.push(singleApp)
-    //     }
-    //     localStorage.setItem('installed', JSON.stringify(updatedList))
-    // }
-
 
     return (
         <section>
@@ -101,7 +84,7 @@ const Appdetails = () => {
                 </div>
                 <div className="border border-[#13131310] mt-15 mb-5" ></div>
                 <div>
-                    <h2>Description</h2>
+                    <h2 className='text-xl font-semibold mb-4 text-[#001931]'>Description</h2>
                     <p className='text-xs md:text-lg text-[#627382]'>
                         {description}
                     </p>

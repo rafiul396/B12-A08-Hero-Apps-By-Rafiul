@@ -2,10 +2,13 @@ import React from 'react';
 import appNotFound from '../assets/App-Error.png';
 import Container from '../components/layout/Container';
 import { Link } from 'react-router';
+import Navbar from '../components/header/navbar/Navbar';
+import Footer from '../components/footer/Footer';
 
 const AppNotFound = () => {
     return (
         <div>
+            <Navbar />
             <Container>
                 <div className='h-[100vh] flex flex-col justify-center items-center'>
                 <div>
@@ -26,6 +29,7 @@ const AppNotFound = () => {
                 </div>
                 </div>
             </Container>
+            <Footer />
         </div>
     );
 };

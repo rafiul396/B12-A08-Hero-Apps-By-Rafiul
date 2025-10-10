@@ -10,7 +10,7 @@ import Loaderforapp from './loader/Loaderforapp'
 function App() {
   const { loading } = useApp();
   return (
-    <div className='flex flex-col min-h-screen'>
+    <div className='flex flex-col min-h-screen text-[#001931]'>
       {
         loading ? <Loaderforapp /> : (
           <>
@@ -19,7 +19,6 @@ function App() {
               <Outlet />
             </div>
             <Footer />
-            <Loaderforapp />
           </>
         )
       }
