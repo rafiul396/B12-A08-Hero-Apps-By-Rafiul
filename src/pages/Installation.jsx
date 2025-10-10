@@ -33,6 +33,7 @@ const Installation = () => {
 
     return (
         <main>
+            <title>Installation - bdsoft.io</title>
             <Container>
                 <div className='mt-20 mb-10'>
                     <h3 className='text-3xl text-center font-semibold mb-4'>

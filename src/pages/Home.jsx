@@ -9,6 +9,7 @@ const Home = () => {
 
     return (
         <>
+        <title>Home - bdsoft.io</title>
             <Container>
                 <Hero />
             </Container>

@@ -18,7 +18,7 @@ const Navbar = () => {
                             </span>
 
                         </div>
-                        <ul className={`absolute duration-500 -z-10 ${open ? 'top-16' : '-top-40'} right-0 md:hidden bg-transparent w-full text-center text-xl space-y-2 p-2`}>
+                        <ul className={`bg-base-100 absolute duration-500 -z-10 ${open ? 'top-16' : '-top-40'} right-0 md:hidden w-full text-center text-xl space-y-2 p-2`}>
                             <li>
                                 <NavLink onClick={() => setOpen(e => !e)} to='/'>Home</NavLink>
                             </li>

@@ -31,6 +31,7 @@ const Appdetails = () => {
 
     return (
         <section>
+            <title>App Details - bdsoft.io</title>
             <Container>
                 <div className='lg:grid lg:grid-cols-12 lg:gap-6 flex flex-col justify-center lg:justify-start rounded-xl pt-20'>
                     <div className='lg:h-[300px] xl:h-[430px] xl:w-[450px] bg-[#13131310] rounded-xl lg:col-span-4 p-10 m-5 lg:m-0 lg:p-6'>

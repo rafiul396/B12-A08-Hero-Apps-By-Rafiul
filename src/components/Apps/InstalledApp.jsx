@@ -13,19 +13,19 @@ const InstalledApp = ({ app, uninstallApp }) => {
     return (
         <div className='flex justify-between items-center bg-base-100 rounded-xl p-4'>
             <div className='flex items-center gap-4'>
-                <img className='w-[100px] rounded-xl' src={image} alt="" />
+                <img className='md:w-[100px] w-[80px] rounded-xl' src={image} alt="" />
                 <div className='space-y-4'>
                     <h4 className='text-xl'>
                         {title}
                     </h4>
                     <div className='flex justify-between space-x-5'>
                         <span className='text-[#00D390] flex items-center gap-2'>
-                            <img className='w-[16px] h-[16px]' src={downloadIcon} alt="" /><span className='text-[16px]'>{downloads}</span>
+                            <img className='md:w-[16px] w-[12px] md:h-[16px] h-[12px]' src={downloadIcon} alt="" /><span className='md:text-[16px] text-xs'>{downloads}</span>
                         </span>
                         <span className='text-[#FF8811] flex items-center gap-2'>
-                            <img className='w-[16px] h-[16px]' src={ratingIcon} alt="" /><span className='text-[16px]'>{ratingAvg}</span>
+                            <img className='md:w-[16px] w-[12px] md:h-[16px] h-[12px]' src={ratingIcon} alt="" /><span className='md:text-[16px] text-xs'>{ratingAvg}</span>
                         </span>
-                        <span className='text-[#627382] flex items-center gap-2'>
+                        <span className='text-[#627382] md:text-[16px] text-xs flex items-center gap-2'>
                             {size}MB
                         </span>
                     </div>

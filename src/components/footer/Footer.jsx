@@ -5,13 +5,13 @@ const Footer = () => {
     return (
         <footer className="bg-base-100 shadow-sm mt-20">
             <Container>
-                <div className='footer sm:footer-horizontal  text-base-content p-10'>
+                <div className='footer sm:footer-horizontal  text-base-content md:p-5 p-3'>
                     <nav>
                         <h6 className="footer-title">Services</h6>
-                        <a className="link link-hover">Branding</a>
-                        <a className="link link-hover">Design</a>
-                        <a className="link link-hover">Marketing</a>
-                        <a className="link link-hover">Advertisement</a>
+                        <a className="link link-hover">Web Development</a>
+                        <a className="link link-hover">UI/UX Design</a>
+                        <a className="link link-hover">API Development</a>
+                        <a className="link link-hover">DevOpst</a>
                     </nav>
                     <nav>
                         <h6 className="footer-title">Company</h6>
